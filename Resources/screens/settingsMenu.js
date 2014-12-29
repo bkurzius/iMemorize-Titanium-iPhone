@@ -146,8 +146,6 @@ SettingsMenu.handleCloseClick = function(e){
 
 SettingsMenu.showSettings = function(){
 	SettingsMenu.init();
-
-
 	SettingsMenu.closeButton = Ti.UI.createButton({
 		borderRadius:10,
 		font:{fontSize:16,fontFamily:AddQuote._fontFamily,fontWeight:'bold'}
