@@ -1,8 +1,8 @@
-#appname: iMemorize Mobile
-#publisher: bkurzius
-#url: http://www.imemorize.org
-#image: appicon.png
-#appid: org.imemorize.mobile
-#desc: undefined
-#type: mobile
-#guid: ac08b0d9-dabc-4a99-9b53-8e71f5a7bc1a
+#appname:iMemorize Mobile
+#publisher:bkurzius
+#url:http://www.imemorize.org
+#image:appicon.png
+#appid:org.imemorize.iMemorize
+#desc:not specified
+#type:mobile
+#guid:ac08b0d9-dabc-4a99-9b53-8e71f5a7bc1a

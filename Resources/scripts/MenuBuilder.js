@@ -80,6 +80,7 @@ MenuBuilder.trackEvent = function(catTitle) {
 		if (catTitle == "Collections")
 			return;
 		trackEvent('select category', 'cat', catTitle);
+		Titanium.App.fireEvent('trackChooseCategoryEvent',{data:catTitle});
 	}, 500);
 
 };
@@ -201,6 +202,8 @@ MenuBuilder.buildQuoteSelector = function(quoteSet) {
 		return false;
 	});
 	MenuBuilder.$quoteSelector.show();
+	
+	MenuBuilder.trackEvent(thisQuoteSetName);
 
 };
 

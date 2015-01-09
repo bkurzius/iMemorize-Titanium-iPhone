@@ -186,6 +186,16 @@ AddQuote.init = function(){
 	// Declare orientation modes
 	AddQuote.win.orientationModes = [Titanium.UI.LANDSCAPE_LEFT,Titanium.UI.LANDSCAPE_RIGHT,Titanium.UI.PORTRAIT,Titanium.UI.UPSIDE_PORTRAIT];
 	
+	var GA = require("analytics.google");
+		var tracker = GA.getTracker("UA-2194207-10");
+		tracker.trackEvent({
+  			category: "start",
+ 		 	action: "loaded"
+		});
+		tracker.trackScreen({
+  			screenName: "home"
+		});
+	
 };
 
 

@@ -1,0 +1,1 @@
+/Users/briankurzius/Documents/development/titanium/projects/iMemorize Mobile/Resources/scripts/jquery-1.4.3.js

@@ -11,7 +11,10 @@ var mainWindow = Ti.UI.createWindow({
 	fullscreen : true
 });
 
+
+
 var App = {
+	
 	// data
 	data : {
 		showQuoteEditorInited : false,
@@ -93,6 +96,8 @@ var App = {
 		},
 		gameBtnBgColor : '#666666'
 	},
+	
+	
 	// functions
 	//openUiWindow: {},
 	//closeUIWindow: {}
@@ -133,6 +138,12 @@ var App = {
 		Ti.App.Properties.setString("languageRowIndex_preference", "5");
 		Ti.UI.setBackgroundColor('#000');
 		App.draw();
+		
+		var GA = require("analytics.google");
+		App.GATracker = GA.getTracker("UA-2194207-10");
+		App.GATracker.trackScreen({
+  			 screenName: "home"
+		});
 	}
 };
 
@@ -200,6 +211,9 @@ App.setListeners = function() {
 	Ti.App.addEventListener('deleteQuoteEvent', App.deleteQuote);
 	Ti.App.addEventListener('sendFeedback', App.showEmailUsDialog);
 	Ti.App.addEventListener('showQuoteSelector', App.showQuoteSelector);
+	Ti.App.addEventListener('trackScreen', App.trackScreen);
+	Ti.App.addEventListener('trackChooseCategoryEvent', App.trackChooseCategoryEvent);
+	Ti.App.addEventListener('trackMemorizeEvent', App.trackMemorizeEvent);
 	Ti.Network.addEventListener('change', App.handleTitaniumNetworkChange);
 	Ti.Gesture.addEventListener('orientationchange', App.handleTitaniumOrientationChange);
 	Ti.API.info('setListeners2');
@@ -208,6 +222,31 @@ App.setListeners = function() {
 
 Ti.API.info('start2');
 // --------- functions -------------
+
+App.trackChooseCategoryEvent = function(e){
+	Ti.API.info("trackChooseCategoryEvent: data:"  + e.data);
+	Ti.API.info("trackChooseCategoryEvent: data:stringify"  + JSON.stringify(e.data));
+	var str = JSON.stringify(e.data);
+		App.GATracker.trackEvent({
+  			category: "chooseCategory",
+ 		 	label: str
+		});		
+};
+App.trackMemorizeEvent = function(e){
+	var str = JSON.stringify(e.data);
+	Ti.API.info("trackMemorizeEvent: str:" + str);
+		App.GATracker.trackEvent({
+  			category: "memorize",
+ 		 	label: str
+		});		
+};
+App.trackScreen = function(e){
+	var str = JSON.stringify(e.data);
+	Ti.API.info("trackScreen: str:" + str);
+		App.GATracker.trackScreen({
+  			screenName: str
+		});		
+};
 
 App.showQuoteSelector = function() {
 	App.ui.webview.visible = true;
@@ -396,6 +435,7 @@ App.loadQuotes = function() {
 	this.buildSavedQuotes();
 };
 
+// gets the text from the db and creates an xml file that we use to populate the app
 App.buildSavedQuotes = function() {
 	Ti.API.info('buildSavedQuotes()');
 	var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'savedQuotes.xml');
@@ -412,7 +452,17 @@ App.buildSavedQuotes = function() {
 	Ti.API.info('ROW COUNT = ' + rows.getRowCount());
 	var tempContent = '<?xml version="1.0" encoding="utf-8"?><quotes><section name="Saved Quotes">';
 	while (rows.isValidRow()) {
-		tempContent += '<quote id=\'' + rows.fieldByName('quote_id') + '\'>' + '<text>' + rows.fieldByName('quote') + '</text>' + '<author>' + rows.fieldByName('author') + '</author>' + '<reference>' + rows.fieldByName('source') + '</reference>' + '<language>' + rows.fieldByName('language') + '</language>' + '<checked>' + rows.fieldByName('checked') + '</checked>' + '</quote>';
+		// replace any end \n so old errors are fixed
+		
+		var q = rows.fieldByName('quote');
+		Ti.API.info("contents text quote= " + q);
+		// q = q.replaceAll('<br/> ','\n');
+		// if(q.indexOf('\n')>-1){
+			// //quoteString = quoteString.replace(/^\s+|\s+$/g, '');
+			// q = q.replace(/^\s+|\s+$/g, '');
+		// }
+		// q = q.replaceAll('\n','<br/> ');
+		tempContent += '<quote id=\'' + rows.fieldByName('quote_id') + '\'>' + '<text>' + q + '</text>' + '<author>' + rows.fieldByName('author') + '</author>' + '<reference>' + rows.fieldByName('source') + '</reference>' + '<language>' + rows.fieldByName('language') + '</language>' + '<checked>' + rows.fieldByName('checked') + '</checked>' + '</quote>';
 		Ti.API.info('ID: ' + rows.field(0) + ' Quote: ' + rows.fieldByName('quote') + ' Language ' + rows.fieldByName('language'));
 		rows.next();
 	}

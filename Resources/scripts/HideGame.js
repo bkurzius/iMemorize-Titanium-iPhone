@@ -143,8 +143,7 @@ HideQuoteGame.buildQuoteScreen = function(quoteNum){
     $currAuthor = decodeURIComponent(jQuery(thisQuote).find('author').text());
     this.addSource($currAuthor, $currSource, $currQuoteLanguage,$currQuoteURL);
     TitaniumUtils.sendQuoteToDevice($currQuoteText,$currIntroText,$currAuthor,$currSource,$currQuoteLanguage,$currQuoteId,$currQuoteURL);
-	trackEvent('memorize', 'quote', quoteNum + ":" +  $currQuoteText.substring(0,100));
-	
+	Titanium.App.fireEvent('trackMemorizeEvent',{data:$currQuoteText.substring(0,100)});	
 };
 
 // this function splits a string into an array of chars

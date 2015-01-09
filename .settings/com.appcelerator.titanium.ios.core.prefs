@@ -1,8 +1,10 @@
 eclipse.preferences.version=1
 iosLaunchConfigurationAttributes/ATTR_MINIFY=true
-iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=iMemorize Mobile
-iosLaunchConfigurationAttributes/appid=org.imemorize.mobile
-iosLaunchConfigurationAttributes/certificate=Brian Kurzius (WQF9WQA6KN)
+iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=iMemorize iPhone
+iosLaunchConfigurationAttributes/appid=org.imemorize.iMemorize
+iosLaunchConfigurationAttributes/certificate=Brian Kurzius (3F87T53QLV)
+iosLaunchConfigurationAttributes/distribute_path=/Users/briankurzius/Desktop
 iosLaunchConfigurationAttributes/keychain=
+iosLaunchConfigurationAttributes/output_format=ipa
 iosLaunchConfigurationAttributes/sdk_version=8.1
-iosLaunchConfigurationAttributes/uuid=12f6c629-b7d1-4d13-bf3f-f75bec913121
+iosLaunchConfigurationAttributes/uuid=8e99c800-dc5c-4550-a3e0-3f909e892ca9

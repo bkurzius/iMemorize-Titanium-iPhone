@@ -7,14 +7,14 @@
 #define _QUOTEME(x) #x
 #define STRING(x) _QUOTEME(x)
 
-NSString * const TI_APPLICATION_DEPLOYTYPE = @"test";
-NSString * const TI_APPLICATION_ID = @"org.imemorize.mobile";
+NSString * const TI_APPLICATION_DEPLOYTYPE = @"development";
+NSString * const TI_APPLICATION_ID = @"org.imemorize.iMemorize";
 NSString * const TI_APPLICATION_PUBLISHER = @"bkurzius";
 NSString * const TI_APPLICATION_URL = @"http://www.imemorize.org";
 NSString * const TI_APPLICATION_NAME = @"iMemorize Mobile";
-NSString * const TI_APPLICATION_VERSION = @"1.0";
+NSString * const TI_APPLICATION_VERSION = @"1.2";
 NSString * const TI_APPLICATION_DESCRIPTION = @"not specified";
-NSString * const TI_APPLICATION_COPYRIGHT = @"2011 by bkurzius";
+NSString * const TI_APPLICATION_COPYRIGHT = @"2015 by bkurzius";
 NSString * const TI_APPLICATION_GUID = @"ac08b0d9-dabc-4a99-9b53-8e71f5a7bc1a";
 BOOL const TI_APPLICATION_ANALYTICS = true;
 NSString * const TI_APPLICATION_BUILD_TYPE = @"";

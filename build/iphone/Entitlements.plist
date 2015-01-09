@@ -5,10 +5,10 @@
 	<key>get-task-allow</key>
 	<true/>
 	<key>application-identifier</key>
-	<string>C5W749VM2D.org.imemorize.mobile</string>
+	<string>C5W749VM2D.org.imemorize.iMemorize</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>C5W749VM2D.org.imemorize.mobile</string>
+		<string>C5W749VM2D.org.imemorize.iMemorize</string>
 	</array>
 </dict>
 </plist>

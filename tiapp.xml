@@ -8,13 +8,13 @@
         <target device="android">false</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <id>org.imemorize.mobile</id>
+    <id>org.imemorize.iMemorize</id>
     <name>iMemorize Mobile</name>
-    <version>1.0</version>
+    <version>1.2</version>
     <publisher>bkurzius</publisher>
     <url>http://www.imemorize.org</url>
     <description>not specified</description>
-    <copyright>2011 by bkurzius</copyright>
+    <copyright>2015 by bkurzius</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -36,5 +36,7 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android"/>
-    <modules/>
+    <modules>
+        <module platform="iphone">analytics.google</module>
+    </modules>
 </ti:app>
